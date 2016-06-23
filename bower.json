@@ -1,0 +1,24 @@
+{
+  "name": "BridgeApp",
+  "description": "Bridge tournament registration application",
+  "main": "app.js",
+  "authors": [
+    "koders"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Bridge"
+  ],
+  "homepage": "https://github.com/koders/BridgeApp",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Materialize": "materialize#^0.97.6",
+    "jquery": "^3.0.0"
+  }
+}
