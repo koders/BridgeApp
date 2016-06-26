@@ -19,6 +19,7 @@
   ],
   "dependencies": {
     "Materialize": "materialize#^0.97.6",
-    "jquery": "^3.0.0"
+    "jquery": "^3.0.0",
+    "react": "^15.1.0"
   }
 }
