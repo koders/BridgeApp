@@ -20,6 +20,13 @@ module.exports = function(grunt) {
         src: ['**/*.jsx'],
         dest: '.tmp/public/js/react-views',
         ext: '.js'
+      },
+      {
+        expand: true,
+        cwd: 'assets/js/languages',
+        src: ['**/*.js'],
+        dest: '.tmp/public/js/languages',
+        ext: '.js'
       }]
     }
   });

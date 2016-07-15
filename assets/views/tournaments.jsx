@@ -1,22 +1,32 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import Language from '../languages/Language.js';
 
 $(function(){
+
+  var lang = new Language({language: 'en'});
 
   class App extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        name       : 'World'
+        language : 'en'
       };
     }
 
+    setLanguage(value) {
+      lang.setLanguage(value);
+      this.setState({language: value});
+    }
+
     render() {
-      const {name} = this.state;
+      const {language} = this.state;
 
       return (
         <p>
-          Hello <b>{name}</b>
+          {lang.get('greeting')}
+          <button className="waves-effect waves-light btn" onClick={this.setLanguage.bind(this, 'lv')}>LV</button>
+          <button className="waves-effect waves-light btn" onClick={this.setLanguage.bind(this, 'en')}>EN</button>
         </p>
       );
     }
