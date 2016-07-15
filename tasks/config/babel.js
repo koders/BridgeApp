@@ -18,7 +18,7 @@ module.exports = function(grunt) {
         expand: true,
         cwd: 'assets/views/',
         src: ['**/*.jsx'],
-        dest: '.tmp/public/js/',
+        dest: '.tmp/public/js/react-views',
         ext: '.js'
       }]
     }
