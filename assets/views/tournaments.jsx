@@ -7,7 +7,7 @@ $(function(){
     constructor(props) {
       super(props);
       this.state = {
-        name       : 'Eric'
+        name       : 'World'
       };
     }
 
