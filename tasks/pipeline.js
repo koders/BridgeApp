@@ -11,6 +11,11 @@
  *   https://github.com/balderdashy/sails-docs/blob/master/anatomy/myApp/tasks/pipeline.js.md
  */
 
+// BROWSERIFY main file path
+// Browserify task work before copying the files in the .tmp folder
+// so the path sould be something like .tmp/public/js/app.js
+// just change assets/ for .tmp/public/ and then the same path as always
+var browserifyMainFile = '.tmp/public/js/app.js';
 
 // CSS files to inject in order
 //
@@ -26,16 +31,17 @@ var cssFilesToInject = [
 var jsFilesToInject = [
 
   // Load sails.io before everything else
-  'js/dependencies/sails.io.js',
+  // 'js/dependencies/sails.io.js',
 
   // Dependencies like jQuery, or Angular are brought in here
   'js/dependencies/**/jquery.js',
-  'js/dependencies/**/react.js',
-  'js/dependencies/**/*.js',
+  'js/dependencies/**/materialize.js'
+  // 'js/dependencies/**/react.js',
+  // 'js/dependencies/**/*.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
-  'js/**/*.js'
+  // 'js/**/*.js'
 ];
 
 
@@ -73,5 +79,7 @@ module.exports.jsFilesToInject = jsFilesToInject.map(function(jsPath) {
 module.exports.templateFilesToInject = templateFilesToInject.map(function(tplPath) {
   return require('path').join('assets/',tplPath);
 });
+// Browserify main file path
+module.exports.browserifyMainFile = browserifyMainFile;
 
 
