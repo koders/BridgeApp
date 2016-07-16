@@ -19,6 +19,9 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.connections.html
  */
 
+var dbUser = process.env.DB_USER;
+var dbPass = process.env.DB_PASS;
+
 module.exports.connections = {
 
   /***************************************************************************
@@ -71,6 +74,14 @@ module.exports.connections = {
     user: '', //optional
     password: '', //optional
     database: 'BridgeApp' //optional
+  },
+  herokuMongoLab: {
+    adapter: 'sails-mongo',
+    host: 'ds023105.mlab.com',
+    port: 23105,
+    user: dbUser,
+    password: dbPass,
+    database: 'heroku_fxhwf144'
   },
 
   /***************************************************************************

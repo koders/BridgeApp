@@ -1,5 +1,5 @@
 {
-  "name": "BridgeApp",
+  "name": "bridge-tournaments",
   "private": true,
   "version": "0.0.1",
   "description": "a Sails application",
@@ -32,9 +32,12 @@
     "sails-disk": "~0.10.9",
     "sails-mongo": "^0.12.0"
   },
+  "engines": {
+    "node": "5.9.1"
+  },
   "scripts": {
     "debug": "node debug app.js",
-    "start": "node app.js"
+    "start": "node app.js --prod"
   },
   "main": "app.js",
   "repository": {
@@ -42,5 +45,5 @@
     "url": "git://github.com/anonymous node/sails user/BridgeApp.git"
   },
   "author": "anonymous node/sails user",
-  "license": ""
+  "license": "MIT"
 }
