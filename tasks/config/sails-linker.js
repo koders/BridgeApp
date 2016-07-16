@@ -35,6 +35,8 @@ module.exports = function(grunt) {
   // Add browserify main file
   jsFiles.push('.tmp/public/browserify/debug.' + version + '.js');
 
+  var jsFilesProd = ['.tmp/public/min/production.' + version + '.min.js'];
+
   grunt.config.set('sails-linker', {
     devJs: {
       options: {
@@ -73,9 +75,9 @@ module.exports = function(grunt) {
         appRoot: '.tmp/public'
       },
       files: {
-        '.tmp/public/**/*.html': ['.tmp/public/min/production.' + version + '.min.js'],
-        'views/**/*.html': ['.tmp/public/min/production.' + version + '.min.js'],
-        'views/**/*.ejs': ['.tmp/public/min/production.' + version + '.min.js']
+        '.tmp/public/**/*.html': jsFilesProd,
+        'views/**/*.html': jsFilesProd,
+        'views/**/*.ejs': jsFilesProd
       }
     },
 
