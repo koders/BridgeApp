@@ -1,6 +1,7 @@
 # BridgeApp
 
 BridgeApp is application for bridge players to create and register for tournaments.
+https://bridge-tournaments.herokuapp.com/
 
 ## prerequisites
 - Node.js
