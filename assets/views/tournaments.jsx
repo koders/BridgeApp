@@ -9,22 +9,9 @@ $(function(){
   class App extends Component {
     constructor(props) {
       super(props);
-      this.state = {
-        language : 'en'
-      };
-    }
-
-    setLanguage(value) {
-      lang.setLanguage(value);
-      this.setState({language: value});
     }
 
     render() {
-      const {language} = this.state;
-      var flagLanguage = language;
-      if( flagLanguage == 'en' ) {
-        flagLanguage = 'gb';
-      }
       return (
         <div>
           <ul id="dropdown1" className="dropdown-content">
@@ -48,25 +35,7 @@ $(function(){
                   </a>
                 </li>
                 <li>
-                  <div className="dropdown">
-                    <div className="dropdown-toggle language waves-effect" data-toggle="dropdown">
-                      <div className={"flag-icon flag-icon-" + flagLanguage + " flag"}></div>
-                    </div>
-                    <ul className="dropdown-menu dropdown-menu-right">
-                      <li>
-                        <a onClick={this.setLanguage.bind(this, 'lv')}>
-                          <div className="flag-icon flag-icon-lv flag"></div>
-                          <span>Latviski</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a onClick={this.setLanguage.bind(this, 'en')}>
-                          <div className="flag-icon flag-icon-gb flag"></div>
-                          <span>English</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
+                  <LanguageDropdown/>
                 </li>
               </ul>
             </div>
@@ -74,6 +43,49 @@ $(function(){
           {lang.get('greeting')}
         </div>
       );
+    }
+  }
+
+  class LanguageDropdown extends Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        language : 'en'
+      };
+    }
+
+    setLanguage(value) {
+      lang.setLanguage(value);
+      this.setState({language: value});
+    }
+
+    render() {
+      const {language} = this.state;
+      var flagLanguage = language;
+      if( flagLanguage == 'en' ) {
+        flagLanguage = 'gb';
+      }
+      return(
+        <div className="dropdown">
+          <div className="dropdown-toggle language waves-effect" data-toggle="dropdown">
+            <div className={"flag-icon flag-icon-" + flagLanguage + " flag"}></div>
+          </div>
+          <ul className="dropdown-menu dropdown-menu-right">
+            <li>
+              <a onClick={this.setLanguage.bind(this, 'lv')}>
+                <div className="flag-icon flag-icon-lv flag"></div>
+                <span>Latviski</span>
+              </a>
+            </li>
+            <li>
+              <a onClick={this.setLanguage.bind(this, 'en')}>
+                <div className="flag-icon flag-icon-gb flag"></div>
+                <span>English</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      )
     }
   }
 
