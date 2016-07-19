@@ -1,6 +1,72 @@
 .brand-logo img {
   height: 64px;
 }
+
+nav.main-navigation {
+  padding-right: 15px;
+}
+
+/* Profile button in navigation */
+nav.main-navigation .profile-button {
+  display: flex;
+  padding: 7px;
+}
+
+nav.main-navigation .profile-button .text {
+  padding: 10px;
+}
+
+nav.main-navigation .profile-button .text .title {
+  font-weight: bold;
+  line-height: 1rem;
+  margin-bottom: 2px;
+}
+
+nav.main-navigation .profile-button .text .subtitle {
+  line-height: 1rem;
+  opacity: .6;
+}
+
+nav.main-navigation .profile-button img.circle {
+  width: 50px;
+  height: 50px;
+}
+
+nav.main-navigation .profile-button i {
+  height:100%;
+  line-height: 100%;
+  align-self: center;
+}
+/* Profile button in navigation END */
+
+/* Language dropdown */
+nav.main-navigation .language {
+  display: flex;
+  align-items: center;
+  height: 64px;
+  margin-left: 20px;
+}
+nav.main-navigation .language .flag {
+  width: 50px;
+  height: 20px;
+}
+
+nav .dropdown-menu>li {
+  width: 100%;
+}
+
+nav .dropdown-menu>li>a>div.flag {
+  margin-right: 5px;
+}
+
+nav.main-navigation .language .language-menu>div {
+  display: flex;
+  align-items: center;
+}
+
+/* Language dropdown END */
+
+
 /* Dropdown from Daemonite-material http://daemonite.github.io/ */
 .dropdown {
   position: relative;
