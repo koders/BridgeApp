@@ -60,7 +60,4 @@ module.exports.globals = {
   ****************************************************************************/
 
 	// models: true
-
-  /** grunt hook timeout for heroku **/
-  hookTimeout: 999999
 };
