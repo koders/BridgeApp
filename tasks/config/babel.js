@@ -27,6 +27,13 @@ module.exports = function(grunt) {
         src: ['**/*.js'],
         dest: '.tmp/public/js/languages',
         ext: '.js'
+      },
+      {
+        expand: true,
+        cwd: 'assets/js',
+        src: ['*.js'],
+        dest: '.tmp/public/js',
+        ext: '.js'
       }]
     }
   });
