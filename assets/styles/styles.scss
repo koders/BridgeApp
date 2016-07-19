@@ -1,3 +1,111 @@
 .brand-logo img {
   height: 64px;
 }
+/* Dropdown from Daemonite-material http://daemonite.github.io/ */
+.dropdown {
+  position: relative;
+  z-index: 1;
+}
+.dropdown [data-toggle="dropdown"] {
+  cursor: pointer;
+}
+
+.dropdown-inline {
+  display: inline-block;
+}
+
+.dropdown-menu {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0 2px 2px 2px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 0 3px rgba(0, 0, 0, 0.18), 0 1px 3px rgba(0, 0, 0, 0.18);
+  list-style: none;
+  margin: 0 !important;
+  min-width: 100%;
+  opacity: 0;
+  padding-top: 8px;
+  padding-right: 0;
+  padding-bottom: 8px;
+  padding-left: 0;
+  position: absolute !important;
+  top: 100%;
+  left: 0;
+  -webkit-transform: scale(0.3, 0);
+  transform: scale(0.3, 0);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: opacity, transform;
+  transition-property: opacity, transform, -webkit-transform;
+  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dropdown.open .dropdown-menu {
+  opacity: 1;
+  -webkit-transform: scale(1, 1);
+  transform: scale(1, 1);
+}
+.dropdown-menu.dropdown-menu-right, .dropdown.pull-right .dropdown-menu {
+  border-radius: 2px 0 2px 2px;
+  right: 0;
+  left: auto;
+  -webkit-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+}
+.dropdown-menu li > a,
+.dropdown-menu li > .a {
+  color: #212121;
+  display: block;
+  line-height: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dropdown-menu li > a:focus, .dropdown-menu li > a:hover,
+.dropdown-menu li > .a:focus,
+.dropdown-menu li > .a:hover {
+  background-color: #f5f5f5;
+}
+.dropdown-menu li.active > a,
+.dropdown-menu li.active > .a {
+  background-color: #f5f5f5;
+}
+
+.dropdown-toggle {
+  -webkit-transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.dropdown.open .dropdown-toggle {
+  background-color: rgba(154, 154, 154, 0.18);
+  border-radius: 2px 2px 0 0;
+}
+
+.dropdown-toggle-btn {
+  margin-right: 1px;
+  margin-left: 1px;
+  padding-right: 16px;
+  padding-left: 16px;
+  position: relative;
+  z-index: 1;
+}
+.dropdown.open .dropdown-toggle-btn {
+  background-color: #ffffff;
+  box-shadow: none;
+  color: #212121;
+}
+.dropdown-toggle-btn ~ .dropdown-menu {
+  min-width: 100%;
+  padding-top: 56px;
+  top: -14px;
+  left: 0;
+  -webkit-transform: scale(1, 0);
+  transform: scale(1, 0);
+}
+.dropdown-toggle-btn ~ .dropdown-menu.dropdown-menu-right, .dropdown.pull-right .dropdown-toggle-btn ~ .dropdown-menu {
+  right: 0;
+  left: auto;
+}
+/* Dropdown from Daemonite-material http://daemonite.github.io/ END */
