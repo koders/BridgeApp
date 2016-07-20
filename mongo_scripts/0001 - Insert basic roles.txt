@@ -1,0 +1,2 @@
+db.getCollection('role').insert({uid: 1, name: "User"})
+db.getCollection('role').insert({uid: 2, name: "Administrator"})

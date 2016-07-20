@@ -40,7 +40,17 @@ module.exports = {
   },
 
   check: function(req, res) {
-    return res.ok(req.user);
+    var user = req.user;
+    if(!user){
+      return res.ok(user);
+    }
+    Role.findOne({uid:user.role_id}).exec(function(err, role) {
+      if(err || !role){
+        return res.ok(user);
+      }
+      user.role = role.name;
+      return res.ok(user);
+    });
   }
 
 };
