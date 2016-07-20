@@ -42,7 +42,7 @@ var verifyHandler = function(token, tokenSecret, profile, done) {
 };
 
 passport.serializeUser(function(user, done) {
-  done(null, user);
+  done(null, user.uid);
 });
 
 passport.deserializeUser(function(uid, done) {
