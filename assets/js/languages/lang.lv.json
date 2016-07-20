@@ -1,5 +1,9 @@
 {
   "greeting": "Sveiks",
   "facebook_login": "Ienākt ar facebook kontu",
-  "tournaments": "Turnīri"
+  "tournaments": "Turnīri",
+  "user": "Lietotājs",
+  "administrator": "Administrators",
+  "profile": "Profils",
+  "logout": "Iziet"
 }

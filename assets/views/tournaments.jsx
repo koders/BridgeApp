@@ -88,7 +88,7 @@ $(function(){
             <img src={"http://graph.facebook.com/" + authenticated.uid + "/picture"} alt="" className="circle" />
             <div className="text">
               <div className="title">{authenticated.name}</div>
-              <div className="subtitle">User</div>
+              <div className="subtitle">{lang.get(authenticated.role.toLowerCase())}</div>
             </div>
             <i className="fa fa-caret-down"/>
           </a>
@@ -96,13 +96,13 @@ $(function(){
             <li>
               <a>
                 <i className="fa fa-user"/>
-                Profile
+                {lang.get('profile')}
               </a>
             </li>
             <li>
               <a href="/auth/logout">
                 <i className="fa fa-power-off red-text"/>
-                Logout
+                {lang.get('logout')}
               </a>
             </li>
           </ul>

@@ -1,5 +1,9 @@
 {
   "greeting": "Hello",
   "facebook_login": "Login with facebook",
-  "tournaments": "Tournaments"
+  "tournaments": "Tournaments",
+  "user": "User",
+  "administrator": "Administrator",
+  "profile": "Profile",
+  "logout": "Logout"
 }
