@@ -54,7 +54,11 @@ process.chdir(__dirname);
   }
 
   // Load environment variables
-  require('dotenv').config();
+  try {
+    require('dotenv').config();
+  } catch(e) {
+    console.info('.env file not found, continuing...');
+  }
 
   // Start server
   sails.lift(rc('sails'));
