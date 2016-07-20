@@ -8,6 +8,7 @@ var verifyHandler = function(token, tokenSecret, profile, done) {
 
     User.findOne({uid: profile.id}, function(err, user) {
       if (user) {
+        console.log('user found:', user);
         return done(null, user);
       } else {
 
@@ -27,7 +28,12 @@ var verifyHandler = function(token, tokenSecret, profile, done) {
           data.lastname = profile.name.familyName;
         }
 
+        console.log('data', data);
+
         User.create(data, function(err, user) {
+          console.log('done creating user');
+          console.log('errors:', err);
+          console.log('user:', user);
           return done(err, user);
         });
       }
@@ -36,7 +42,7 @@ var verifyHandler = function(token, tokenSecret, profile, done) {
 };
 
 passport.serializeUser(function(user, done) {
-  done(null, user ? user.uid : null);
+  done(null, user);
 });
 
 passport.deserializeUser(function(uid, done) {
