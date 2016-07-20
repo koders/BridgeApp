@@ -37,7 +37,7 @@ $(function(){
     render() {
       return (
         <div>
-          <nav className="main-navigation">
+          <nav className="main-navigation blue-grey darken-4">
             <div className="nav-wrapper">
               <a id="logo-container" href="#" className="brand-logo"><img src="/images/logo_web_big.jpg"/></a>
               <ul className="nav right hide-on-med-and-down">
@@ -50,7 +50,18 @@ $(function(){
               </ul>
             </div>
           </nav>
-          {lang.get('greeting')}
+          <div className="main-content-wrapper">
+            <nav className="sidenav blue-grey darken-4">
+              <ul>
+                <li>
+                  <a>{lang.get('tournaments')}</a>
+                </li>
+              </ul>
+            </nav>
+            <div className="main-content">
+              {lang.get('greeting')}
+            </div>
+          </div>
         </div>
       );
     }

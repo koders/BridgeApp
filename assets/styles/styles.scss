@@ -197,3 +197,32 @@ nav.main-navigation .language .language-menu>div {
   left: auto;
 }
 /* Dropdown from Daemonite-material http://daemonite.github.io/ END */
+
+/* Side navigation */
+.sidenav {
+  width: 240px;
+  position: fixed;
+  height: 100%;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.sidenav>ul>li {
+  width: 100%;
+  text-align: center;
+}
+
+.sidenav>ul>li>a {
+  width: 100%;
+}
+/* Side navigation END */
+
+/* Main content */
+.main-content-wrapper {
+  display: flex;
+}
+
+.main-content {
+
+}
+/* Main content END */
+
