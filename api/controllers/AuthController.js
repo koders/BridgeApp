@@ -11,7 +11,7 @@ module.exports = {
 
   // login action will render the login view
   login: function (req, res) {
-    res.view();
+    res.redirect('/');
   },
 
   // logout action will logout using Passport

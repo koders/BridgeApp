@@ -6,7 +6,7 @@ $(function(){
 
   var lang = new Language({language: 'en'});
 
-  var authCheckUrl = 'http://localhost:1337/auth/check';
+  var authCheckUrl = 'auth/check';
 
   class App extends Component {
     constructor(props) {
