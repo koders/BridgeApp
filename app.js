@@ -53,6 +53,8 @@ process.chdir(__dirname);
     }
   }
 
+  // Load environment variables
+  require('dotenv').config();
 
   // Start server
   sails.lift(rc('sails'));

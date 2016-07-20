@@ -48,6 +48,9 @@ passport.deserializeUser(function(uid, done) {
 var appId = process.env.FACEBOOK_APP_ID;
 var appSecret = process.env.FACEBOOK_APP_SECRET;
 
+var host = process.env.HOST;
+var url = require('url');
+
 module.exports.http = {
 
   customMiddleware: function(app) {
@@ -55,7 +58,7 @@ module.exports.http = {
     passport.use(new FacebookStrategy({
       clientID: appId, // Use your Facebook App Id
       clientSecret: appSecret, // Use your Facebook App Secret
-      callbackURL: "http://localhost:1337/auth/facebook/callback"
+      callbackURL: url.resolve(host, 'auth/facebook/callback')
     }, verifyHandler));
 
     app.use(passport.initialize());
