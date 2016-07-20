@@ -34,7 +34,15 @@ module.exports.routes = {
 
   '/': {
     view: 'tournamentList'
-  }
+  },
+  '/login': {
+    controller: 'AuthController',
+    action: 'login'
+  },
+  '/logout': {
+    controller: 'AuthController',
+    action: 'logout'
+  },
 
   /***************************************************************************
   *                                                                          *

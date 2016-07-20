@@ -6,36 +6,46 @@ $(function(){
 
   var lang = new Language({language: 'en'});
 
+  var authCheckUrl = 'http://localhost:1337/auth/check';
+
   class App extends Component {
     constructor(props) {
       super(props);
+      this.state = {
+        language : 'en'
+      };
+    }
+
+    componentDidMount() {
+      this.serverRequest = $.get(authCheckUrl, function (result) {
+        console.log(result);
+        this.setState({
+          authenticated: result
+        });
+      }.bind(this));
+    }
+
+    componentWillUnmount() {
+      this.serverRequest.abort();
+    }
+
+    setLanguage(value) {
+      lang.setLanguage(value);
+      this.setState({language: value});
     }
 
     render() {
       return (
         <div>
-          <ul id="dropdown1" className="dropdown-content">
-            <li><a href="#!">one</a></li>
-            <li><a href="#!">two</a></li>
-            <li className="divider"></li>
-            <li><a href="#!">three</a></li>
-          </ul>
           <nav className="main-navigation">
             <div className="nav-wrapper">
               <a id="logo-container" href="#" className="brand-logo"><img src="/images/logo_web_big.jpg"/></a>
               <ul className="nav right hide-on-med-and-down">
                 <li>
-                  <a className="profile-button waves-effect">
-                    <img src="https://z-1-scontent-fra3-1.xx.fbcdn.net/v/t1.0-9/13528749_836304686475372_3891635766179124219_n.jpg?oh=86f77c4950356ad43828429b6248de07&oe=57F0E761" alt="" className="circle" />
-                    <div className="text">
-                      <div className="title">Rihards Fridrihsons</div>
-                      <div className="subtitle">User</div>
-                    </div>
-                    <i className="fa fa-caret-down"/>
-                  </a>
+                  <ProfileButton authenticated={this.state.authenticated} />
                 </li>
                 <li>
-                  <LanguageDropdown/>
+                  <LanguageDropdown language={this.state.language} setLanguage={this.setLanguage.bind(this)}/>
                 </li>
               </ul>
             </div>
@@ -46,22 +56,58 @@ $(function(){
     }
   }
 
-  class LanguageDropdown extends Component {
+  class ProfileButton extends Component {
     constructor(props) {
       super(props);
-      this.state = {
-        language : 'en'
-      };
-    }
-
-    setLanguage(value) {
-      lang.setLanguage(value);
-      this.setState({language: value});
     }
 
     render() {
-      const {language} = this.state;
-      var flagLanguage = language;
+      var authenticated = this.props.authenticated;
+      if(!authenticated) {
+        return(
+          <a href="/auth/facebook/" className="btn facebook">
+            <i className="fa fa-facebook left" aria-hidden="true"/>
+            {lang.get('facebook_login')}
+          </a>
+        )
+      }
+      return(
+        <div className="dropdown dropdown-inline profile-dropdown">
+          <a className="dropdown-toggle-btn profile-button waves-effect" data-toggle="dropdown">
+            <img src={"http://graph.facebook.com/" + authenticated.uid + "/picture"} alt="" className="circle" />
+            <div className="text">
+              <div className="title">{authenticated.name}</div>
+              <div className="subtitle">User</div>
+            </div>
+            <i className="fa fa-caret-down"/>
+          </a>
+          <ul className="dropdown-menu nav">
+            <li>
+              <a>
+                <i className="fa fa-user"/>
+                Profile
+              </a>
+            </li>
+            <li>
+              <a href="/auth/logout">
+                <i className="fa fa-power-off red-text"/>
+                Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      )
+    }
+  }
+
+  class LanguageDropdown extends Component {
+    constructor(props) {
+      super(props);
+    }
+
+    render() {
+      var setLanguage = this.props.setLanguage;
+      var flagLanguage = this.props.language;
       if( flagLanguage == 'en' ) {
         flagLanguage = 'gb';
       }
@@ -72,13 +118,13 @@ $(function(){
           </div>
           <ul className="dropdown-menu dropdown-menu-right">
             <li>
-              <a onClick={this.setLanguage.bind(this, 'lv')}>
+              <a onClick={setLanguage.bind(this, 'lv')}>
                 <div className="flag-icon flag-icon-lv flag"></div>
                 <span>Latviski</span>
               </a>
             </li>
             <li>
-              <a onClick={this.setLanguage.bind(this, 'en')}>
+              <a onClick={setLanguage.bind(this, 'en')}>
                 <div className="flag-icon flag-icon-gb flag"></div>
                 <span>English</span>
               </a>

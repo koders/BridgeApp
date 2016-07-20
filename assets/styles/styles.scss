@@ -7,6 +7,19 @@ nav.main-navigation {
 }
 
 /* Profile button in navigation */
+
+.btn.facebook {
+  background-color: #3b5998;
+}
+
+.btn.facebook:hover {
+  background-color: #8b9dc3;
+}
+
+.btn.facebook>i {
+  line-height: inherit;
+}
+
 nav.main-navigation .profile-button {
   display: flex;
   padding: 7px;
@@ -37,6 +50,15 @@ nav.main-navigation .profile-button i {
   line-height: 100%;
   align-self: center;
 }
+
+nav.main-navigation .profile-dropdown .dropdown-menu {
+  padding-top: 78px;
+}
+
+nav.main-navigation .profile-dropdown .dropdown-menu>li>a>i:first-child {
+  padding: 5px;
+}
+
 /* Profile button in navigation END */
 
 /* Language dropdown */
