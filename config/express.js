@@ -36,7 +36,7 @@ var verifyHandler = function(token, tokenSecret, profile, done) {
 };
 
 passport.serializeUser(function(user, done) {
-  done(null, user.uid);
+  done(null, user ? user.uid : null);
 });
 
 passport.deserializeUser(function(uid, done) {
