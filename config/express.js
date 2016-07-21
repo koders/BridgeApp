@@ -15,7 +15,8 @@ var verifyHandler = function(token, tokenSecret, profile, done) {
           provider: profile.provider,
           uid: profile.id,
           name: profile.displayName,
-          role_id: 1
+          role_id: 1,
+          language: 'en'
         };
 
         if (profile.emails && profile.emails[0] && profile.emails[0].value) {

@@ -43,6 +43,7 @@ module.exports.routes = {
     controller: 'AuthController',
     action: 'logout'
   },
+  'POST /users/:id/language': 'UserController.changeLanguage'
 
   /***************************************************************************
   *                                                                          *

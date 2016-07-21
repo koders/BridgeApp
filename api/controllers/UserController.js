@@ -6,6 +6,15 @@
  */
 
 module.exports = {
-	
+  changeLanguage: function (req, res) {
+    var userId = req.param('id');
+    var language = req.body.language;
+    User.update({uid:userId}, {language}).exec(function(err, updated) {
+      if(err) {
+        return res.serverError();
+      }
+      return res.ok();
+    });
+  },
 };
 

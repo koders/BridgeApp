@@ -7,20 +7,26 @@ $(function(){
   var lang = new Language({language: 'en'});
 
   var authCheckUrl = 'auth/check';
+  var path = require('path');
 
   class App extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        language : 'en'
+        language: 'en'
       };
     }
 
     componentDidMount() {
       this.serverRequest = $.get(authCheckUrl, function (result) {
         console.log(result);
+        if(!result) {
+          return;
+        }
+        lang.setLanguage(result.language);
         this.setState({
-          authenticated: result
+          user: result,
+          language: result.language
         });
       }.bind(this));
     }
@@ -30,11 +36,16 @@ $(function(){
     }
 
     setLanguage(value) {
+      if(this.state.user) {
+        $.post(path.join('users', this.state.user.uid, 'language'), {language: value});
+      }
       lang.setLanguage(value);
       this.setState({language: value});
     }
 
     render() {
+      const user = this.state.user;
+      const language = this.state.language;
       return (
         <div>
           <nav className="main-navigation blue-grey darken-4">
@@ -42,10 +53,10 @@ $(function(){
               <a id="logo-container" href="#" className="brand-logo"><img src="/images/logo_web_big.jpg"/></a>
               <ul className="nav right hide-on-med-and-down">
                 <li>
-                  <ProfileButton authenticated={this.state.authenticated} />
+                  <ProfileButton user={user} />
                 </li>
                 <li>
-                  <LanguageDropdown language={this.state.language} setLanguage={this.setLanguage.bind(this)}/>
+                  <LanguageDropdown language={language} setLanguage={this.setLanguage.bind(this)}/>
                 </li>
               </ul>
             </div>
@@ -73,8 +84,8 @@ $(function(){
     }
 
     render() {
-      var authenticated = this.props.authenticated;
-      if(!authenticated) {
+      var user = this.props.user;
+      if(!user) {
         return(
           <a href="/auth/facebook/" className="btn facebook">
             <i className="fa fa-facebook left" aria-hidden="true"/>
@@ -85,10 +96,10 @@ $(function(){
       return(
         <div className="dropdown dropdown-inline profile-dropdown">
           <a className="dropdown-toggle-btn profile-button waves-effect" data-toggle="dropdown">
-            <img src={"http://graph.facebook.com/" + authenticated.uid + "/picture"} alt="" className="circle" />
+            <img src={"http://graph.facebook.com/" + user.uid + "/picture"} alt="" className="circle" />
             <div className="text">
-              <div className="title">{authenticated.name}</div>
-              <div className="subtitle">{lang.get(authenticated.role.toLowerCase())}</div>
+              <div className="title">{user.name}</div>
+              <div className="subtitle">{lang.get(user.role.toLowerCase())}</div>
             </div>
             <i className="fa fa-caret-down"/>
           </a>
