@@ -5,5 +5,14 @@
   "user": "Lietotājs",
   "administrator": "Administrators",
   "profile": "Profils",
-  "logout": "Iziet"
+  "logout": "Iziet",
+  "tournament": "Turnīrs",
+  "organiser": "Organizators",
+  "date": "Datums",
+  "time": "Laiks",
+  "location": "Vieta",
+  "tournamentHeader": "Tuvākie turnīri",
+  "createTournament": "Jauns turnīrs",
+  "tournamentName": "Turnīra nosaukums",
+  "create": "Izveidot"
 }

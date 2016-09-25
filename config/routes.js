@@ -33,7 +33,8 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': {
-    view: 'tournamentList'
+    controller: 'ReactController',
+    action: 'redirectToTournaments'
   },
   '/login': {
     controller: 'AuthController',
@@ -43,8 +44,10 @@ module.exports.routes = {
     controller: 'AuthController',
     action: 'logout'
   },
-  'POST /users/:id/language': 'UserController.changeLanguage'
+  '/rest/*': {
 
+  },
+  'POST /users/:id/language': 'UserController.changeLanguage',
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
@@ -54,5 +57,27 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-
+  // '/tournaments': {
+  //   view: 'reactContainer'
+  // },
+  // '/tournaments/*': {
+  //   view: 'reactContainer'
+  // },
+  '/auth/check': {
+    controller: 'AuthController',
+    action: 'check'
+  },
+  '/auth/facebook': {
+    controller: 'AuthController',
+    action: 'facebook'
+  },
+  '/auth/facebook/*': {
+    controller: 'AuthController',
+    action: 'facebook'
+  },
+  '/*': {
+    view: 'reactContainer',
+    skipAssets: true,
+    skipRegex: /^\/rest\/.*$/
+  }
 };

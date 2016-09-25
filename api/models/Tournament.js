@@ -8,7 +8,12 @@
 module.exports = {
 
   attributes: {
-
+    uid: 'integer',
+    name: 'string',
+    organiser: 'string',
+    date: 'date',
+    location: 'string',
+    time: 'string'
   }
 };
 

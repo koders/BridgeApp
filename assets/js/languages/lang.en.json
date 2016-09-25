@@ -5,5 +5,14 @@
   "user": "User",
   "administrator": "Administrator",
   "profile": "Profile",
-  "logout": "Logout"
+  "logout": "Logout",
+  "tournament": "Tournament",
+  "organiser": "Organiser",
+  "date": "Date",
+  "time": "Time",
+  "location": "Location",
+  "tournamentHeader": "Upcoming tournaments",
+  "createTournament": "Create tournament",
+  "tournamentName": "Tournament name",
+  "create": "Create"
 }
